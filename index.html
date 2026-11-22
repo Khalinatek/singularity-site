@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Singularity Technologies</title>
+<meta name="description" content="FANUC robotics programming for automotive production: process design, cycle time optimization, offline programming and on-site commissioning. Based in Ontario, working across Canada, the USA and Mexico.">
+<meta name="theme-color" content="#070604">
+<link rel="canonical" href="https://singularityinc.ca/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%22-60%20-440%201606%201606%22%3E%3Crect%20x%3D%22-60%22%20y%3D%22-440%22%20width%3D%221606%22%20height%3D%221606%22%20rx%3D%22240%22%20fill%3D%22%23070604%22/%3E%3Cpath%20fill%3D%22%23FFDC00%22%20fill-rule%3D%22evenodd%22%20d%3D%22M1101.6%20727.9C1055.2%20723.4%201004.9%20707.2%20958.7%20681.9C926.9%20664.4%20888.2%20637.8%20857.0%20612.0C841.8%20599.4%20807.0%20564.7%20793.8%20549.0L784.2%20537.5L794.5%20527.1L804.9%20516.6L817.5%20528.6C824.5%20535.1%20830.8%20541.0%20831.6%20541.5C832.7%20542.3%20834.4%20541.2%20838.7%20536.7L844.3%20530.8L830.9%20517.4L817.6%20504.0L821.4%20500.1L825.3%20496.1L838.2%20508.3C845.3%20515.0%20851.8%20521.0%20852.6%20521.5C853.7%20522.3%20855.3%20521.2%20859.7%20516.7L865.3%20510.8L851.7%20497.2L838.0%20483.5L841.7%20479.8L845.3%20476.2L866.2%20496.3C877.6%20507.4%20887.5%20516.7%20888.1%20516.9C889.3%20517.3%20897.5%20509.7%20899.2%20506.6C900.0%20505.1%20897.2%20501.8%20879.4%20483.9L858.5%20463.0L862.2%20459.3L865.9%20455.7L877.7%20466.7C884.2%20472.8%20890.3%20478.7%20891.4%20479.8C893.1%20481.7%20893.5%20481.8%20895.9%20480.5C897.4%20479.8%20900.4%20477.2%20902.4%20474.9L906.2%20470.7L892.4%20456.9L878.5%20443.0L882.5%20439.0L886.5%20435.1L900.7%20448.6L915.0%20462.2L920.5%20456.9C923.5%20454.1%20926.0%20451.2%20926.0%20450.6C926.0%20450.0%20919.9%20443.4%20912.5%20436.0L899.0%20422.5L909.5%20412.0C915.2%20406.3%20920.1%20401.8%20920.3%20402.1C934.6%20421.0%20965.6%20453.1%20984.0%20468.1C1035.0%20509.7%201073.1%20531.4%201105.5%20537.5C1116.5%20539.6%201142.3%20539.1%201154.0%20536.5C1173.1%20532.3%201196.5%20522.5%201213.5%20511.5C1226.7%20503.0%201233.3%20497.8%201245.4%20486.0C1272.2%20460.0%201289.0%20429.5%201296.7%20393.0C1299.5%20379.8%201299.2%20344.2%201296.2%20330.4C1287.9%20292.0%201266.4%20257.1%201235.1%20230.9C1199.1%20200.7%201156.0%20184.3%201118.0%20186.4C1092.3%20187.7%201069.5%20196.2%201041.9%20214.5C1018.1%20230.3%20997.2%20248.4%20950.3%20293.8L919.8%20323.3L892.9%20296.4L866.0%20269.5L860.3%20275.3L854.5%20281.0L881.5%20308.0L908.5%20335.0L904.0%20339.5L899.6%20344.0L885.5%20330.0L871.5%20316.0L866.0%20321.5L860.5%20327.0L874.3%20340.8L888.0%20354.6L883.5%20359.0L879.0%20363.4L865.2%20349.7L851.5%20336.0L846.0%20341.5L840.5%20347.0L854.3%20360.8L868.0%20374.5L863.3%20379.3L858.5%20384.0L844.8%20370.3L831.0%20356.5L825.5%20362.0L820.0%20367.5L833.7%20381.3L847.5%20395.1L842.5%20399.5L837.5%20403.9L823.8%20390.2L810.0%20376.5L804.5%20382.0L799.0%20387.5L812.7%20401.2L826.4%20415.0L822.5%20419.0C820.4%20421.2%20818.3%20423.0%20817.9%20423.0C817.5%20423.0%20807.7%20413.7%20796.0%20402.3L774.9%20381.7L769.4%20387.1L764.0%20392.5L785.2%20413.7L806.5%20435.0L801.7%20439.7L797.0%20444.5L783.2%20430.7L769.3%20416.9L763.6%20422.1L757.9%20427.3L771.7%20441.2L785.5%20455.0L780.7%20459.7L776.0%20464.5L762.2%20450.7L748.5%20437.0L743.0%20442.5L737.5%20448.0L751.3%20461.8L765.0%20475.6L760.0%20480.5L755.0%20485.4L741.2%20471.7L727.4%20458.0L721.6%20463.1L715.8%20468.3L729.7%20482.2L743.5%20496.0L738.7%20500.7L734.0%20505.5L720.2%20491.7L706.5%20478.0L701.0%20483.5L695.5%20489.0L709.3%20502.8L723.1%20516.6L720.3%20519.1C713.6%20525.1%20716.5%20527.0%20687.9%20498.4L662.0%20472.5L656.3%20478.3L650.5%20484.0L676.5%20510.1L702.5%20536.1L695.0%20543.3C578.0%20655.5%20535.0%20689.4%20491.5%20703.8C424.3%20726.1%20343.4%20728.5%20270.2%20710.5C217.3%20697.5%20171.7%20675.4%20128.8%20642.0C117.4%20633.1%2089.0%20604.7%2079.4%20592.5C32.9%20533.6%206.3%20461.7%201.0%20380.5C-0.2%20362.1%200.2%20345.7%202.6%20323.0C15.0%20205.8%2078.3%20106.4%20176.5%2050.0C215.0%2027.8%20261.2%2012.0%20308.0%205.1C348.7%20-0.9%20392.3%20-0.2%20431.5%207.1C520.8%2023.7%20608.2%2077.9%20676.1%20158.5C683.7%20167.6%20698.3%20186.7%20699.9%20189.8C700.6%20191.2%20688.7%20204.0%20641.3%20253.5C608.7%20287.6%20579.6%20317.9%20576.7%20320.8L571.5%20326.0L562.5%20314.8C545.1%20293.0%20517.6%20266.4%20494.4%20248.9C442.2%20209.3%20408.3%20191.7%20374.5%20186.3C362.3%20184.4%20337.4%20185.0%20326.0%20187.5C282.2%20197.2%20242.7%20224.5%20216.9%20262.9C180.4%20317.1%20176.4%20380.7%20205.6%20441.0C220.0%20470.8%20238.8%20492.6%20265.5%20510.5C299.1%20533.0%20340.9%20544.4%20378.3%20541.1C400.5%20539.2%20416.0%20535.0%20435.7%20525.5L446.8%20520.2L478.2%20490.9C625.9%20352.8%20739.9%20240.0%20834.6%20138.5C866.9%20103.8%20879.8%2092.5%20908.5%2073.4C990.3%2019.2%201094.8%20-6.0%201185.3%206.6C1303.8%2023.1%201403.9%20100.1%201454.0%20213.4C1481.5%20275.6%201491.6%20348.6%201482.0%20416.0C1471.1%20492.8%201437.8%20560.9%201383.8%20616.6C1322.6%20679.6%201244.0%20718.6%201160.3%20727.5C1145.5%20729.1%201116.1%20729.3%201101.6%20727.9ZM932.7%20549.8C951.6%20530.9%20967.0%20514.9%20967.0%20514.3C967.0%20513.3%20959.3%20513.0%20931.5%20513.0L896.0%20513.0L896.0%20548.5C896.0%20576.2%20896.3%20584.0%20897.2%20584.0C897.9%20584.0%20913.9%20568.6%20932.7%20549.8ZM640.0%20547.5L670.5%20517.0L659.5%20506.0C653.5%20500.0%20648.1%20495.0%20647.5%20495.0C646.9%20495.0%20632.8%20508.7%20616.0%20525.5L585.5%20556.0L596.5%20567.0C602.5%20573.0%20607.9%20578.0%20608.5%20578.0C609.1%20578.0%20623.2%20564.3%20640.0%20547.5ZM766.0%20349.3L766.0%20314.5L731.3%20349.0C712.2%20368.0%20696.4%20383.6%20696.1%20383.8C695.9%20383.9%20711.5%20384.0%20730.8%20384.0L766.0%20384.0L766.0%20349.3ZM908.0%20277.5L918.5%20267.0L928.7%20277.2L939.0%20287.5L949.5%20277.0L960.1%20266.5L949.7%20256.3L939.4%20246.1L949.9%20235.5L960.5%20225.0L949.7%20214.3L939.0%20203.5L928.4%20214.1L917.9%20224.6L908.3%20214.8C903.0%20209.4%20898.1%20205.0%20897.5%20205.0C896.9%20205.0%20892.0%20209.5%20886.5%20215.0L876.5%20225.0L886.8%20235.2L897.0%20245.5L886.3%20256.2L875.5%20267.0L886.0%20277.5C891.8%20283.3%20896.7%20288.0%20897.0%20288.0C897.3%20288.0%20902.2%20283.3%20908.0%20277.5Z%22/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Singularity Technologies Inc.">
+<meta property="og:title" content="Singularity Technologies | FANUC Robotics for Automotive">
+<meta property="og:description" content="Process design, cycle time optimization and offline FANUC programming. 19 assembly plants across Canada, the USA and Mexico.">
+<meta property="og:url" content="https://singularityinc.ca/">
+<meta property="og:image" content="https://singularityinc.ca/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Singularity Technologies Inc.", "url": "https://singularityinc.ca/", "email": "khalil.karim@singularityinc.ca", "description": "FANUC robot programming, process design, cycle time optimization and offline programming for automotive manufacturing.", "areaServed": ["CA", "US", "MX"], "address": {"@type": "PostalAddress", "addressRegion": "ON", "addressCountry": "CA"}, "founder": {"@type": "Person", "name": "Khalil Karim", "jobTitle": "Robotics Engineer", "sameAs": ["https://www.linkedin.com/in/khalil-k-4a3a4066"]}, "sameAs": ["https://www.linkedin.com/company/singularity-technologies-incorp"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a robot controller's screen. One character grid drawn on canvas carries the art, frame and schematic;
+   real text sits on top of it, snapped to the same grid. Brand yellow on black, nothing else. */
+:root{
+  --y:#FFDC00;
+  --y2:#b39a00;
+  --dim:#6e6440;
+  --ink:#070604;
+  --text:#f3ecc8;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --cw:7px; --ch:12px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--ink);color:var(--text);font-family:var(--mono)}
+body{overflow-x:hidden;font-size:13px;line-height:1.5}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:1px dashed var(--y);outline-offset:3px}
+#c{position:absolute;left:0;top:0;z-index:0;pointer-events:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+#app{position:relative;z-index:1;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;
+  padding:calc(var(--ch)*2) calc(var(--cw)*4) calc(var(--ch)*2)}
+#app>*{transition:opacity .8s ease}
+.hold #app>*{opacity:0}
+.hold #app>#stage{opacity:1}
+.hold #stage>*:not(#art){opacity:0}
+
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:var(--ch) 0;min-height:calc(var(--ch)*4)}
+.brand{font-weight:600;letter-spacing:.14em;color:var(--y);background:var(--ink);padding:0 6px}
+.brand span{color:var(--dim)}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+.b{display:inline-flex;align-items:center;justify-content:center;line-height:1.2;padding:4px 6px;color:var(--y);background:var(--ink);letter-spacing:.08em;white-space:pre;cursor:pointer;transition:background .15s,color .15s}
+.b:hover,.b:focus-visible{background:var(--y);color:var(--ink);outline:none}
+.b:active{transform:translateY(1px)}
+
+#art{flex:1;min-height:42vh}
+
+#copy{position:relative;display:grid;gap:12px;align-content:center;justify-items:center;text-align:center;padding:var(--ch) 0;max-width:100%}
+#copy>*{background:var(--ink);padding:0 6px}
+.type{font-size:clamp(15px,1.9vw,24px);font-weight:500;color:var(--y);letter-spacing:.04em;min-height:1.5em}
+.type .p{color:var(--dim)}
+.cur{display:inline-block;color:var(--y);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.sub{color:var(--text);max-width:64ch;opacity:.82}
+.btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:4px;padding:0!important;background:none!important}
+.btns .b{font-size:14px;padding:9px 14px;border:0}
+.btns .b.pri{background:var(--y);color:var(--ink)}
+.btns .b.pri:hover{background:var(--text)}
+
+footer{position:relative;display:flex;justify-content:space-between;align-items:center;gap:8px 20px;flex-wrap:wrap;padding:var(--ch) 0;min-height:calc(var(--ch)*4);color:var(--dim);font-size:12px;letter-spacing:.06em}
+footer>span{background:var(--ink);padding:0 4px}
+footer b{color:var(--y);font-weight:400}
+#replay{font:inherit;border:0}
+button.b{font-family:var(--mono);border:0;background:none}
+html.nocur, html.nocur *{cursor:none}
+#stage>*{transition:opacity .8s ease}
+#stage{flex:1;display:flex;flex-direction:column;position:relative;min-height:0}
+#stage.away #art,#stage.away #copy{visibility:hidden}
+.view{position:absolute;inset:var(--ch) 0;overflow:auto;-webkit-mask-image:linear-gradient(transparent,#000 18px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(transparent,#000 18px,#000 calc(100% - 28px),transparent);scrollbar-width:thin;scrollbar-color:var(--dim) transparent}
+.view[hidden]{display:none}
+.vwrap{max-width:1080px;margin:0 auto;padding:calc(var(--ch)*1.5) calc(var(--cw)*3) calc(var(--ch)*3);display:grid;justify-items:center;text-align:center;gap:18px}
+.vwrap.center-v{min-height:100%;align-content:center}
+.eyebrow{color:var(--dim);letter-spacing:.2em;font-size:12px;margin-top:calc(var(--ch)*2)}
+.vwrap>.eyebrow:first-child{margin-top:0}
+.view h2{font-size:clamp(20px,2.6vw,32px);font-weight:500;color:var(--y);letter-spacing:.03em;text-wrap:balance;max-width:28ch}
+.lead{max-width:62ch;opacity:.85;font-size:14px}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:0;border:1px solid #3a3420;width:100%;max-width:820px}
+.stats>div{flex:1 1 160px;padding:14px 10px;display:grid;gap:4px;border-right:1px solid #3a3420}
+.stats>div:last-child{border-right:0}
+.stats b{color:var(--y);font-size:clamp(20px,2.4vw,30px);font-weight:500}
+.stats span{color:var(--dim);font-size:11px;letter-spacing:.16em}
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;width:100%}
+.card{position:relative;flex:0 1 236px;border:1px solid #3a3420;padding:22px 16px 16px;display:grid;gap:8px;align-content:start;transition:border-color .2s,background .2s}
+.card:hover{border-color:var(--y);background:#0f0d06}
+.card .tag{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);background:var(--ink);color:var(--y);padding:0 8px;font-size:11px;letter-spacing:.14em;white-space:nowrap}
+.card h3{font-size:13px;color:var(--text);letter-spacing:.1em;font-weight:600}
+.card p{font-size:12.5px;color:#bdb596;line-height:1.55}
+.card.cert{flex-basis:236px;min-height:86px;align-content:center}
+.card.cert p{color:var(--text);font-size:13px}
+.timeline{display:grid;justify-items:center;gap:0;max-width:640px}
+.tl{display:grid;gap:4px;padding:6px 0}
+.tl .yr{color:var(--y);font-size:12px;letter-spacing:.16em}
+.tl h3{font-size:14px;letter-spacing:.08em;font-weight:600}
+.tl .org{color:var(--y);opacity:.8;font-size:12.5px}
+.tl p{font-size:13px;color:#bdb596;max-width:60ch}
+.tl-dot{color:var(--dim);line-height:1;font-size:18px}
+.plants{display:grid;gap:22px;width:100%;justify-items:center}
+.pgroup{width:100%;display:grid;gap:12px;justify-items:center}
+.ph{font-size:13px;letter-spacing:.2em;color:var(--y);font-weight:600}
+.ph span{color:var(--dim)}
+.plist{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;width:100%}
+.plist li{flex:0 1 236px;display:grid;gap:3px;align-content:start;font-size:12.5px;border:1px solid #3a3420;padding:12px 10px;transition:border-color .2s,background .2s}
+.plist li:hover{border-color:var(--y);background:#0f0d06}
+.plist b{color:var(--y);font-weight:500;letter-spacing:.14em;font-size:11px}
+.plist .pn{color:var(--text)}
+.plist .pv{color:#a39b7c;font-size:11.5px;line-height:1.5;min-height:3em;display:flex;align-items:center;justify-content:center}
+.plist .pt{color:var(--y);font-size:10.5px;letter-spacing:.14em;margin-top:6px;padding-top:7px;border-top:1px dashed #2a2616}
+.plist .pd{color:#cfc7a5;font-size:12px;line-height:1.5}
+.svc{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.svc li{border:1px solid #3a3420;color:var(--y);font-size:12px;letter-spacing:.14em;padding:8px 12px}
+.mail{color:var(--y);font-size:clamp(15px,2vw,22px);word-break:break-all}
+.btns.links .b{font-size:12px}
+.note{min-height:1.5em;color:var(--dim);font-size:12px}
+.loc{color:var(--dim);letter-spacing:.16em;font-size:11px}
+nav .b[aria-current="page"]{background:var(--y);color:var(--ink)}
+
+footer .on{color:var(--y);animation:blink 1.6s steps(1) infinite}
+#toast{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);color:var(--y);background:var(--ink);padding:0 8px;white-space:nowrap}
+#toast:empty{display:none}
+
+#boot{position:absolute;z-index:3;left:0;top:0;font-size:12px;line-height:1.6;color:var(--dim);
+  background:var(--ink);padding:6px 10px;transition:opacity .4s;white-space:pre-wrap;letter-spacing:.04em;max-width:calc(100vw - var(--cw)*8)}
+#boot .ok{color:var(--y)}
+#boot .bar{color:var(--y);font-size:13px}
+#boot.done{opacity:0;pointer-events:none}
+#skip{position:absolute;z-index:3;left:0;top:0;font-size:11px;color:var(--dim);background:var(--ink);padding:4px 8px;letter-spacing:.1em;transition:opacity .4s}
+#boot.done + #skip{opacity:0;pointer-events:none}
+
+@media (max-width:640px){
+  header{justify-content:center;text-align:center}
+  nav{justify-content:center}
+  footer{justify-content:center;column-gap:24px}
+  #boot{font-size:10.5px}
+  #skip{display:none}
+  #app{padding:calc(var(--ch)*2) calc(var(--cw)*3)}
+  #art{min-height:34vh}
+  .brand span{display:none}
+}
+@media (prefers-reduced-motion:reduce){ .cur,footer .on{animation:none} #app>*{transition:none} }
+</style>
+</head>
+<body>
+<script>document.body.classList.add('hold');</script>
+<canvas id="c" aria-hidden="true"></canvas>
+<div id="app">
+  <header id="hdr">
+    <a class="brand" href="#home">SINGULARITY<span> TECHNOLOGIES INC.</span></a>
+    <nav aria-label="Main">
+      <a class="b" href="#work" data-nav="work">[ WORK ]</a>
+      <a class="b" href="#about" data-nav="about">[ ABOUT ]</a>
+      <a class="b" href="#contact" data-nav="contact">[ CONTACT ]</a>
+    </nav>
+  </header>
+  <h1 class="sr">Singularity Technologies Inc. Robotics programming for automotive processes.</h1>
+  <div id="stage">
+  <div id="art"></div>
+  <section id="copy">
+    <p class="type"><span class="p">&gt; </span><span id="typed"></span><span class="cur">█</span><span id="rest" aria-hidden="true" style="visibility:hidden">ROBOTICS PROGRAMMING // AUTOMOTIVE PROCESSES</span></p>
+    <p class="sub">Robot programming, cell integration and commissioning for automotive production lines.</p>
+    <div class="btns">
+      <a class="b pri" href="#contact">[ START A PROJECT ]</a>
+      <a class="b" href="#work">[ SEE CAPABILITIES ]</a>
+    </div>
+  </section>
+
+  <section class="view" id="v-work" data-view="work" hidden aria-labelledby="h-work">
+    <div class="vwrap">
+      <p class="eyebrow">01 // CAPABILITIES</p>
+      <h2 id="h-work">FANUC robotics for automotive production</h2>
+      <div class="stats"><div><b>12+</b><span>YEARS</span></div><div><b>19</b><span>PLANTS</span></div><div><b>8</b><span>CERTIFICATIONS</span></div><div><b>CA·US·MX</b><span>WORKING IN</span></div></div>
+      <div class="cards"><article class="card"><span class="tag">01</span><h3>ROBOT PROGRAMMING</h3><p>Spot and stud welding, sealant and dispense, material handling.</p></article><article class="card"><span class="tag">02</span><h3>VISION &amp; BIN PICKING</h3><p>FANUC iRVision 2D and 3DL, Keyence bin picking, Matrox 2D error proofing and offsets, INOS and VMT SpinTop.</p></article><article class="card"><span class="tag">03</span><h3>SAFETY // DCS</h3><p>FANUC Dual Check Safety set up and verified against customer requirements.</p></article><article class="card"><span class="tag">04</span><h3>OFFLINE PROGRAMMING</h3><p>Cells simulated and programmed offline in FANUC Roboguide.</p></article><article class="card"><span class="tag">05</span><h3>COMMISSIONING</h3><p>Start-up at the build shop and customer site. Buy-off on safety, quality, function and cycle time.</p></article><article class="card"><span class="tag">06</span><h3>OEM STANDARDS</h3><p>GM GRS and controls standards. Ford and FCA standards.</p></article><article class="card"><span class="tag">07</span><h3>PLC INTEGRATION</h3><p>Process sequence and communications worked through with the controls team.</p></article><article class="card"><span class="tag">08</span><h3>GLASS CELLS</h3><p>Urethane dispense and vision-guided auto decking for windshields and backlites, at 10 plants.</p></article></div>
+      <p class="eyebrow">02 // PLANTS ON SITE</p>
+      <h2>19 assembly plants, 3 countries</h2>
+      <div class="plants"><div class="pgroup"><h3 class="ph">CANADA <span>// 4</span></h3><ul class="plist"><li><b>FCA</b><span class="pn">Brampton Assembly</span><span class="pv">Dodge Charger, Challenger, Chrysler 300</span><span class="pt">SEALER</span><span class="pd">Robotic sealer and dispense.</span></li><li><b>FCA</b><span class="pn">Windsor Assembly</span><span class="pv">Dodge Grand Caravan, Chrysler Town &amp; Country</span><span class="pt">SEALER · HANDLING</span><span class="pd">Robotic sealer dispense, de-racking of Stow 'n Go tubs, and installation of a robotic urethane application.</span></li><li><b>GM</b><span class="pn">CAMI Assembly, Ingersoll</span><span class="pv">Chevrolet Equinox, GMC Terrain</span><span class="pt">SEALER · VISION</span><span class="pd">Robotic sealer dispense with VMT vision bead inspection.</span></li><li><b>GM</b><span class="pn">Oshawa Assembly</span><span class="pv">Chevrolet Silverado, Impala</span><span class="pt">WELD · HANDLING · VISION · LAUNCH</span><span class="pd">Launch of the body side cells and Keyence bin picking, with robot process, cycle time and zone optimization.</span></li></ul></div><div class="pgroup"><h3 class="ph">USA <span>// 12</span></h3><ul class="plist"><li><b>FORD</b><span class="pn">Louisville Assembly</span><span class="pv">Ford Escape, Lincoln MKC</span><span class="pt">SEALER · VISION</span><span class="pd">Interior seam sealer, liquid applied sound deadener and vision-guided rear deck lid sealer.</span></li><li><b>FORD</b><span class="pn">Ohio Assembly</span><span class="pv">E-Series, F-650</span><span class="pt">SEALER</span><span class="pd">Robotic PVC coating.</span></li><li><b>FORD</b><span class="pn">Kentucky Truck</span><span class="pv">Expedition, Navigator, F-250</span><span class="pt">GLASS · VISION</span><span class="pd">Glass cell: robotic urethane dispense and auto decking, guided by INOS vision.</span></li><li><b>FORD</b><span class="pn">Flat Rock Assembly</span><span class="pv">Mustang, Lincoln Continental</span><span class="pt">GLASS</span><span class="pd">Glass cell: robotic urethane dispense for glass install.</span></li><li><b>FORD</b><span class="pn">Chicago Assembly</span><span class="pv">Explorer Police Interceptor, Lincoln Aviator</span><span class="pt">GLASS</span><span class="pd">Glass cell: robotic urethane dispense for glass install.</span></li><li><b>FORD</b><span class="pn">Kansas City Assembly</span><span class="pv">F-150, Transit</span><span class="pt">GLASS</span><span class="pd">Glass cell: robotic urethane dispense for glass install.</span></li><li><b>GM</b><span class="pn">Fort Wayne Assembly</span><span class="pv">GMC Sierra, Chevrolet Silverado</span><span class="pt">SEALER · VISION</span><span class="pd">Vision-guided robotic hem flange sealer.</span></li><li><b>GM</b><span class="pn">Fairfax Assembly</span><span class="pv">Chevrolet Malibu, Cadillac XT4</span><span class="pt">GLASS</span><span class="pd">Glass cell: robotic urethane dispense for glass install.</span></li><li><b>GM</b><span class="pn">Lansing Grand River</span><span class="pv">Chevrolet Camaro, Cadillac ATS</span><span class="pt">GLASS</span><span class="pd">Glass cell: robotic urethane dispense for glass install.</span></li><li><b>GM</b><span class="pn">Arlington Assembly</span><span class="pv">Chevrolet Tahoe, Cadillac Escalade</span><span class="pt">GLASS</span><span class="pd">Glass cell: robotic urethane dispense for exterior glass install.</span></li><li><b>GM</b><span class="pn">Spring Hill Assembly</span><span class="pv">Cadillac LYRIQ</span><span class="pt">WELD · SEALER · HANDLING · VISION</span><span class="pd">Spot and stud welding, sealer dispense, material handling and vision.</span></li><li><b>FCA</b><span class="pn">Sterling Heights Assembly</span><span class="pv">Ram 1500</span><span class="pt">GLASS · VISION</span><span class="pd">Glass cell: robotic urethane dispense and windshield and backlite auto decking, with hot backup.</span></li></ul></div><div class="pgroup"><h3 class="ph">MEXICO <span>// 3</span></h3><ul class="plist"><li><b>FORD</b><span class="pn">Hermosillo Assembly</span><span class="pv">Ford Fusion, Lincoln MKZ, Bronco Sport</span><span class="pt">GLASS · HANDLING</span><span class="pd">Glass cell: robotic urethane dispense and auto decking, with TLOS robotic glass load.</span></li><li><b>GM</b><span class="pn">San Luis Potosí</span><span class="pv">Chevrolet Trax, GMC Terrain</span><span class="pt">WELD · SEALER · LAUNCH</span><span class="pd">Lead robotics programmer for a new model changeover, including retrofit and upgrade of 200+ robots.</span></li><li><b>GM</b><span class="pn">Ramos Arizpe</span><span class="pv">Chevrolet Blazer, Equinox</span><span class="pt">GLASS · HANDLING</span><span class="pd">Glass cell: robotic urethane dispense, plus material handling.</span></li></ul></div></div>
+    </div>
+  </section>
+  <section class="view" id="v-about" data-view="about" hidden aria-labelledby="h-about">
+    <div class="vwrap">
+      <p class="eyebrow">03 // PROFILE</p>
+      <h2 id="h-about">Khalil Karim, Robotics Engineer</h2>
+      <p class="lead">Industrial robotics programmer with 12+ years programming, simulating and commissioning robotic systems for automotive manufacturing. FANUC specialist. Based in Ontario, working across Canada, the USA and Mexico.</p>
+      <div class="btns"><a class="b pri" href="resume.pdf" target="_blank" rel="noopener">[ DOWNLOAD RESUME ]</a><a class="b" href="https://www.linkedin.com/in/khalil-k-4a3a4066" target="_blank" rel="noopener">[ LINKEDIN ]</a></div>
+      <p class="eyebrow">04 // EXPERIENCE</p>
+      <div class="timeline"><div class="tl"><span class="yr">2021 → NOW</span><h3>ROBOTICS ENGINEER</h3><p class="org">Singularity Technologies Inc.</p><p>Independent contractor providing FANUC robotics programming to the automotive industry.</p></div><span class="tl-dot">│</span><div class="tl"><span class="yr">2021 → NOW</span><h3>ROBOTICS PROGRAMMER</h3><p class="org">Humber Automated Systems</p><p>Commission robotic cells from simulation data, integrate Keyence bin picking, set up FANUC DCS and close out customer buy-offs on site.</p></div><span class="tl-dot">│</span><div class="tl"><span class="yr">2014 → 2021</span><h3>SENIOR PROJECT ENGINEER, ROBOTICS</h3><p class="org">Esys Automation · Auburn Hills, MI</p><p>Selected and simulated robotic systems, programmed offline, integrated vision, handling and sealer equipment, and trained customer trades at start-up.</p></div><span class="tl-dot">│</span><div class="tl"><span class="yr">2014</span><h3>ELECTROMECHANICAL ENGINEERING TECHNOLOGY</h3><p class="org">Humber College · Automation and Robotics</p><p>Graduated with honours.</p></div></div>
+      <p class="eyebrow">05 // CERTIFICATIONS</p>
+      <div class="cards"><article class="card cert"><span class="tag">FANUC</span><p>Dual Check Safety V7.50+</p></article><article class="card cert"><span class="tag">FANUC</span><p>iRVision 3DL, R-30iB</p></article><article class="card cert"><span class="tag">FANUC</span><p>iRVision 3D Multi-View, R-30iB</p></article><article class="card cert"><span class="tag">FANUC</span><p>PaintTool Operation &amp; Programming</p></article><article class="card cert"><span class="tag">MACOMB CC</span><p>GM Global Robot Specifications (GRS)</p></article><article class="card cert"><span class="tag">OSHA</span><p>10-Hour General Industry</p></article><article class="card cert"><span class="tag">GM</span><p>Lockout, Annual Renewal</p></article><article class="card cert"><span class="tag">LEONI</span><p>Lockout / Tagout Safety</p></article></div>
+    </div>
+  </section>
+  <section class="view" id="v-contact" data-view="contact" hidden aria-labelledby="h-contact">
+    <div class="vwrap center-v">
+      <p class="eyebrow">06 // CONTACT</p>
+      <h2 id="h-contact">Need robot help?</h2>
+      <ul class="svc"><li>PROCESS DESIGN</li><li>CYCLE TIME OPTIMIZATION</li><li>OFFLINE FANUC PROGRAMMING</li></ul>
+      <p class="lead">From a new process on paper to a cell that needs to run faster, get support from simulation through to buy-off on the floor. Send the drawings, the robot model and the target rate, and you will get a plan back.</p>
+      <p class="mail" id="mailaddr">khalil.karim@singularityinc.ca</p>
+      <div class="btns"><a class="b pri" href="mailto:khalil.karim@singularityinc.ca?subject=Robotics%20project">[ SEND EMAIL ]</a><button class="b" type="button" id="copymail">[ COPY EMAIL ]</button></div>
+      <p class="note" id="copymsg" aria-live="polite"> </p>
+      <div class="btns links"><a class="b" href="https://www.linkedin.com/company/singularity-technologies-incorp" target="_blank" rel="noopener">[ LINKEDIN // COMPANY ]</a><a class="b" href="https://www.linkedin.com/in/khalil-k-4a3a4066" target="_blank" rel="noopener">[ LINKEDIN // KHALIL ]</a></div>
+      <p class="loc">BASED IN ONTARIO · WORKING IN CANADA, USA AND MEXICO</p>
+    </div>
+  </section>
+  </div>
+  <footer id="ftr">
+    <span>STATUS: <b class="on">●</b> <b>ONLINE</b></span>
+    <span>BASE: <b>ONTARIO, CA</b> · OPS: CA / US / MX</span>
+    <span>SYS: <b>∞</b></span>
+    <span>TCP: <b id="tcp">X000 Y000</b></span>
+    <span id="clock"></span>
+    <span id="toast" aria-live="polite"></span>
+    <button class="b" id="replay" type="button">[ COLD START ]</button>
+  </footer>
+</div>
+<div id="boot" role="status" aria-label="Loading"></div>
+<div id="skip">CLICK / ANY KEY TO SKIP</div>
+
+<script>
+(async function(){
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let quick=false; try{ quick = sessionStorage.getItem('sg_seen')==='1'; sessionStorage.setItem('sg_seen','1'); }catch(e){}
+
+const LOGO = new Path2D("M1101.6 727.9C1055.2 723.4 1004.9 707.2 958.7 681.9C926.9 664.4 888.2 637.8 857.0 612.0C841.8 599.4 807.0 564.7 793.8 549.0L784.2 537.5L794.5 527.1L804.9 516.6L817.5 528.6C824.5 535.1 830.8 541.0 831.6 541.5C832.7 542.3 834.4 541.2 838.7 536.7L844.3 530.8L830.9 517.4L817.6 504.0L821.4 500.1L825.3 496.1L838.2 508.3C845.3 515.0 851.8 521.0 852.6 521.5C853.7 522.3 855.3 521.2 859.7 516.7L865.3 510.8L851.7 497.2L838.0 483.5L841.7 479.8L845.3 476.2L866.2 496.3C877.6 507.4 887.5 516.7 888.1 516.9C889.3 517.3 897.5 509.7 899.2 506.6C900.0 505.1 897.2 501.8 879.4 483.9L858.5 463.0L862.2 459.3L865.9 455.7L877.7 466.7C884.2 472.8 890.3 478.7 891.4 479.8C893.1 481.7 893.5 481.8 895.9 480.5C897.4 479.8 900.4 477.2 902.4 474.9L906.2 470.7L892.4 456.9L878.5 443.0L882.5 439.0L886.5 435.1L900.7 448.6L915.0 462.2L920.5 456.9C923.5 454.1 926.0 451.2 926.0 450.6C926.0 450.0 919.9 443.4 912.5 436.0L899.0 422.5L909.5 412.0C915.2 406.3 920.1 401.8 920.3 402.1C934.6 421.0 965.6 453.1 984.0 468.1C1035.0 509.7 1073.1 531.4 1105.5 537.5C1116.5 539.6 1142.3 539.1 1154.0 536.5C1173.1 532.3 1196.5 522.5 1213.5 511.5C1226.7 503.0 1233.3 497.8 1245.4 486.0C1272.2 460.0 1289.0 429.5 1296.7 393.0C1299.5 379.8 1299.2 344.2 1296.2 330.4C1287.9 292.0 1266.4 257.1 1235.1 230.9C1199.1 200.7 1156.0 184.3 1118.0 186.4C1092.3 187.7 1069.5 196.2 1041.9 214.5C1018.1 230.3 997.2 248.4 950.3 293.8L919.8 323.3L892.9 296.4L866.0 269.5L860.3 275.3L854.5 281.0L881.5 308.0L908.5 335.0L904.0 339.5L899.6 344.0L885.5 330.0L871.5 316.0L866.0 321.5L860.5 327.0L874.3 340.8L888.0 354.6L883.5 359.0L879.0 363.4L865.2 349.7L851.5 336.0L846.0 341.5L840.5 347.0L854.3 360.8L868.0 374.5L863.3 379.3L858.5 384.0L844.8 370.3L831.0 356.5L825.5 362.0L820.0 367.5L833.7 381.3L847.5 395.1L842.5 399.5L837.5 403.9L823.8 390.2L810.0 376.5L804.5 382.0L799.0 387.5L812.7 401.2L826.4 415.0L822.5 419.0C820.4 421.2 818.3 423.0 817.9 423.0C817.5 423.0 807.7 413.7 796.0 402.3L774.9 381.7L769.4 387.1L764.0 392.5L785.2 413.7L806.5 435.0L801.7 439.7L797.0 444.5L783.2 430.7L769.3 416.9L763.6 422.1L757.9 427.3L771.7 441.2L785.5 455.0L780.7 459.7L776.0 464.5L762.2 450.7L748.5 437.0L743.0 442.5L737.5 448.0L751.3 461.8L765.0 475.6L760.0 480.5L755.0 485.4L741.2 471.7L727.4 458.0L721.6 463.1L715.8 468.3L729.7 482.2L743.5 496.0L738.7 500.7L734.0 505.5L720.2 491.7L706.5 478.0L701.0 483.5L695.5 489.0L709.3 502.8L723.1 516.6L720.3 519.1C713.6 525.1 716.5 527.0 687.9 498.4L662.0 472.5L656.3 478.3L650.5 484.0L676.5 510.1L702.5 536.1L695.0 543.3C578.0 655.5 535.0 689.4 491.5 703.8C424.3 726.1 343.4 728.5 270.2 710.5C217.3 697.5 171.7 675.4 128.8 642.0C117.4 633.1 89.0 604.7 79.4 592.5C32.9 533.6 6.3 461.7 1.0 380.5C-0.2 362.1 0.2 345.7 2.6 323.0C15.0 205.8 78.3 106.4 176.5 50.0C215.0 27.8 261.2 12.0 308.0 5.1C348.7 -0.9 392.3 -0.2 431.5 7.1C520.8 23.7 608.2 77.9 676.1 158.5C683.7 167.6 698.3 186.7 699.9 189.8C700.6 191.2 688.7 204.0 641.3 253.5C608.7 287.6 579.6 317.9 576.7 320.8L571.5 326.0L562.5 314.8C545.1 293.0 517.6 266.4 494.4 248.9C442.2 209.3 408.3 191.7 374.5 186.3C362.3 184.4 337.4 185.0 326.0 187.5C282.2 197.2 242.7 224.5 216.9 262.9C180.4 317.1 176.4 380.7 205.6 441.0C220.0 470.8 238.8 492.6 265.5 510.5C299.1 533.0 340.9 544.4 378.3 541.1C400.5 539.2 416.0 535.0 435.7 525.5L446.8 520.2L478.2 490.9C625.9 352.8 739.9 240.0 834.6 138.5C866.9 103.8 879.8 92.5 908.5 73.4C990.3 19.2 1094.8 -6.0 1185.3 6.6C1303.8 23.1 1403.9 100.1 1454.0 213.4C1481.5 275.6 1491.6 348.6 1482.0 416.0C1471.1 492.8 1437.8 560.9 1383.8 616.6C1322.6 679.6 1244.0 718.6 1160.3 727.5C1145.5 729.1 1116.1 729.3 1101.6 727.9ZM932.7 549.8C951.6 530.9 967.0 514.9 967.0 514.3C967.0 513.3 959.3 513.0 931.5 513.0L896.0 513.0L896.0 548.5C896.0 576.2 896.3 584.0 897.2 584.0C897.9 584.0 913.9 568.6 932.7 549.8ZM640.0 547.5L670.5 517.0L659.5 506.0C653.5 500.0 648.1 495.0 647.5 495.0C646.9 495.0 632.8 508.7 616.0 525.5L585.5 556.0L596.5 567.0C602.5 573.0 607.9 578.0 608.5 578.0C609.1 578.0 623.2 564.3 640.0 547.5ZM766.0 349.3L766.0 314.5L731.3 349.0C712.2 368.0 696.4 383.6 696.1 383.8C695.9 383.9 711.5 384.0 730.8 384.0L766.0 384.0L766.0 349.3ZM908.0 277.5L918.5 267.0L928.7 277.2L939.0 287.5L949.5 277.0L960.1 266.5L949.7 256.3L939.4 246.1L949.9 235.5L960.5 225.0L949.7 214.3L939.0 203.5L928.4 214.1L917.9 224.6L908.3 214.8C903.0 209.4 898.1 205.0 897.5 205.0C896.9 205.0 892.0 209.5 886.5 215.0L876.5 225.0L886.8 235.2L897.0 245.5L886.3 256.2L875.5 267.0L886.0 277.5C891.8 283.3 896.7 288.0 897.0 288.0C897.3 288.0 902.2 283.3 908.0 277.5Z"); // viewBox 1486 x 730
+const LOGO_W=1486, LOGO_H=730;
+
+/* ---------- glyphs ---------- */
+const GLYPHS = " .·:-=+×*◆◇●○□■─│┌┐└┘├┤┬┴┼#%@&<>/\\?!_0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const GI = {}; [...GLYPHS].forEach((g,i)=>GI[g]=i);
+const RAMP = [..."·:-=+×*◆"].map(g=>GI[g]);
+const SCR  = [..."#%@&*+=<>/\\?!×◆◇0123456789"].map(g=>GI[g]);
+const g = ch => GI[ch];
+// textured glyphs, one per 2x4 sub-cell mask: clipped × hatch, clipped + hatch, braille dots
+const XB = GLYPHS.length, PB = XB+256, BB = PB+256, NG = BB+256, PER = 64;
+
+
+/* ---------- canvas & grid ---------- */
+const C=document.getElementById('c'), X=C.getContext('2d');
+const root=document.documentElement, body=document.body;
+let W,H,dpr,cw,chh,cols,rows,N, atlas=null, atlasW=null;
+let G,A,SG,SA,LM,LO,WM,WO,HEAT,REV,ZB,LB;
+let logoR, wordR, paths=[], pulses=[];
+let mouse={x:-1e4,y:-1e4,in:false};
+
+try{ await Promise.race([Promise.all([document.fonts.load('500 14px "IBM Plex Mono"'),document.fonts.load('900 80px "Big Shoulders Display"')]), new Promise(r=>setTimeout(r,1500))]); }catch(e){}
+
+function buildAtlas(){ atlas=paintAtlas(atlas,'#FFDC00'); atlasW=paintAtlas(atlasW,'#E4E9E0'); }
+function paintAtlas(atlas,col){
+  atlas=atlas||document.createElement('canvas');
+  atlas.width=Math.ceil(PER*cw*dpr); atlas.height=Math.ceil(Math.ceil(NG/PER)*chh*dpr);
+  const a=atlas.getContext('2d'); a.scale(dpr,dpr);
+  const PX=i=>(i%PER)*cw, PY=i=>((i/PER)|0)*chh;
+  a.fillStyle=col; a.strokeStyle=col; a.textAlign='center'; a.textBaseline='middle';
+  a.font=`500 ${Math.round(chh*0.8)}px "IBM Plex Mono", Menlo, monospace`;
+  [...GLYPHS].forEach((ch,i)=>{ if(ch!==' ') a.fillText(ch, PX(i)+cw/2, PY(i)+chh*0.54); });
+  // box-drawing chars drawn as true lines so they join cell to cell
+  const box={'─':[1,0,1,0],'│':[0,1,0,1],'┌':[0,0,1,1],'┐':[1,0,0,1],'└':[0,1,1,0],'┘':[1,1,0,0],'├':[0,1,1,1],'┤':[1,1,0,1],'┬':[1,0,1,1],'┴':[1,1,1,0],'┼':[1,1,1,1]};
+  for(const ch in box){ const i=GI[ch], x0=PX(i), y0=PY(i), mx=x0+cw/2, my=y0+chh/2, [l,u,r,d]=box[ch];
+    a.clearRect(x0,y0,cw,chh); const t=1;
+    if(l) a.fillRect(x0,my-t/2,cw/2+t/2,t); if(r) a.fillRect(mx-t/2,my-t/2,cw/2+t/2,t);
+    if(u) a.fillRect(mx-t/2,y0,t,chh/2+t/2); if(d) a.fillRect(mx-t/2,my-t/2,t,chh/2+t/2); }
+  // sub-cell masks: bit k -> column k%2, row k>>1 of a 2x4 split
+  const hw=cw/2, qh=chh/4, ix=cw*0.1, iy=chh*0.14, lw=Math.max(1,cw*0.16), dr=Math.min(hw,qh)*0.36;
+  a.lineWidth=lw; a.lineCap='round';
+  for(let m=1;m<256;m++){
+    for(const [base,kind] of [[XB,'x'],[PB,'p']]){ const i=base+m, x0=PX(i), y0=PY(i);
+      a.save(); a.beginPath(); for(let k=0;k<8;k++) if(m&(1<<k)) a.rect(x0+(k%2)*hw-0.4, y0+(k>>1)*qh-0.4, hw+0.8, qh+0.8); a.clip();
+      a.beginPath();
+      if(kind==='x'){ a.moveTo(x0+ix,y0+iy); a.lineTo(x0+cw-ix,y0+chh-iy); a.moveTo(x0+cw-ix,y0+iy); a.lineTo(x0+ix,y0+chh-iy); }
+      else { a.moveTo(x0+cw/2,y0+iy); a.lineTo(x0+cw/2,y0+chh-iy); a.moveTo(x0+ix,y0+chh/2); a.lineTo(x0+cw-ix,y0+chh/2); }
+      a.stroke(); a.restore(); }
+    const i=BB+m, x0=PX(i), y0=PY(i);
+    for(let k=0;k<8;k++) if(m&(1<<k)){ a.beginPath(); a.arc(x0+((k%2)+0.5)*hw, y0+((k>>1)+0.5)*qh, dr, 0, 7); a.fill(); }
+  }
+  return atlas;
+}
+
+function rectOf(el){ const r=el.getBoundingClientRect(); return {x:r.left+scrollX,y:r.top+scrollY,w:r.width,h:r.height}; }
+
+function layout(){
+  // reserve room for the loader text inside the copy block, so nothing shifts when it swaps to the headline
+  const bt0=document.getElementById('boot'); const keep=bt0.innerHTML; bootText(99); const BW=bt0.offsetWidth, BH=bt0.offsetHeight; const cp0=document.getElementById('copy');
+  cp0.style.minHeight=''; cp0.style.minHeight=Math.max(cp0.offsetHeight, bt0.offsetHeight+document.getElementById('skip').offsetHeight+48)+'px'; bt0.innerHTML=keep;
+  const vw=innerWidth;
+  cw = vw<640 ? Math.max(4.6, vw/86) : Math.min(8.2, Math.max(5.2, vw/215));
+  chh = Math.round(cw*1.72*10)/10;
+  root.style.setProperty('--cw',cw+'px'); root.style.setProperty('--ch',chh+'px');
+  dpr=Math.min(devicePixelRatio||1,2);
+  W=document.documentElement.clientWidth; H=Math.max(innerHeight, document.getElementById('app').offsetHeight);
+  C.width=W*dpr; C.height=H*dpr; C.style.width=W+'px'; C.style.height=H+'px';
+  X.setTransform(dpr,0,0,dpr,0,0);
+  cols=Math.floor(W/cw); rows=Math.floor(H/chh); N=cols*rows;
+  G=new Uint16Array(N); A=new Float32Array(N); SG=new Uint16Array(N); SA=new Float32Array(N);
+  LM=new Float32Array(N); LO=new Uint8Array(N); WM=new Float32Array(N); WO=new Uint8Array(N); HEAT=new Float32Array(N);
+  REV=new Float32Array(N); ZB=new Float32Array(N); LB=new Float32Array(N);
+  buildAtlas();
+
+  // art placement: logo above, wordmark below
+  const art=rectOf(document.getElementById('art'));
+  const pad=chh*1.5, gap=chh*2.2;
+  // size the wordmark box to the text's real height (narrow screens shrink it to fit the width)
+  const mc=document.createElement('canvas').getContext('2d'); mc.font='900 100px "Big Shoulders Display", Impact, sans-serif';
+  const tw100=mc.measureText('SINGULARITY').width;
+  let wordH=Math.max(chh*6, art.h*0.18), availH, lw, lh;
+  for(let k=0;k<2;k++){
+    availH=Math.max(chh*8, art.h-wordH-gap-pad*2);
+    lw=Math.min(art.w*0.86, availH*(LOGO_W/LOGO_H)); lh=lw*LOGO_H/LOGO_W;
+    const maxW=Math.min(art.w*0.92, lw*1.05), fsFit=maxW*100/tw100;
+    wordH=Math.min(Math.max(chh*6, art.h*0.18), fsFit/1.18);
+  }
+  const used=lh+gap+wordH, top=art.y+pad+Math.max(0,(art.h-pad*2-used)/2);
+  logoR={x:art.x+(art.w-lw)/2, y:top, w:lw, h:lh};
+  wordR={x:art.x, y:top+lh+gap, w:art.w, h:wordH};
+  // loader text sits exactly where the headline block will appear
+  const cpr=rectOf(document.getElementById('copy')), bt=document.getElementById('boot'), sk=document.getElementById('skip');
+  const skH=sk.offsetHeight, blockH=BH+chh+skH, top0=cpr.y+(cpr.h-blockH)/2;
+  bt.style.left=(cpr.x+(cpr.w-BW)/2)+'px'; bt.style.top=top0+'px';
+  sk.style.left=(cpr.x+(cpr.w-sk.offsetWidth)/2)+'px'; sk.style.top=(top0+BH+chh)+'px';
+
+  sampleMasks(); buildStatic(); if(typeof hot!=='undefined') hot.clear();
+  // reveal order: sweep left to right with noise
+  makeLayers(); initRain();
+}
+
+function sampleMasks(){
+  const SX=4, SY=8, oc=document.createElement('canvas'); oc.width=cols*SX; oc.height=rows*SY;
+  const o=oc.getContext('2d',{willReadFrequently:true});
+  const read=(arr,oct)=>{ const d=o.getImageData(0,0,oc.width,oc.height).data, ow=oc.width;
+    for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){ let s=0, bits=0;
+      for(let k=0;k<8;k++){ const c0=x*SX+(k%2)*2, r0=y*SY+(k>>1)*2; let q=0;
+        for(let j=0;j<2;j++)for(let l=0;l<2;l++) q+=d[((r0+j)*ow+(c0+l))*4+3];
+        s+=q; if(q>=255*2) bits|=1<<k; }
+      arr[y*cols+x]=s/(255*SX*SY); oct[y*cols+x]=bits; } };
+  o.setTransform(SX/cw,0,0,SY/chh,0,0);
+  o.save(); o.translate(logoR.x,logoR.y); o.scale(logoR.w/LOGO_W,logoR.h/LOGO_H); o.fillStyle='#000'; o.fill(LOGO,'evenodd'); o.restore();
+  read(LM,LO);
+  o.setTransform(1,0,0,1,0,0); o.clearRect(0,0,oc.width,oc.height); o.setTransform(SX/cw,0,0,SY/chh,0,0);
+  o.fillStyle='#000'; o.textAlign='center'; o.textBaseline='alphabetic';
+  let fs=wordR.h*1.18; o.font=`900 ${fs}px "Big Shoulders Display", Impact, sans-serif`;
+  const tw=o.measureText('SINGULARITY').width; const maxW=Math.min(wordR.w*0.92, logoR.w*1.05);
+  if(tw>maxW){ fs*=maxW/tw; o.font=`900 ${fs}px "Big Shoulders Display", Impact, sans-serif`; }
+  o.fillText('SINGULARITY', wordR.x+wordR.w/2, wordR.y+fs*0.8);
+  read(WM,WO);
+  oc.width=oc.height=0;
+}
+
+/* ---------- static layer: frame ---------- */
+function put(arr,aa,x,y,ch,al){ if(x<0||y<0||x>=cols||y>=rows) return; const i=y*cols+x; arr[i]=g(ch); aa[i]=al; }
+function text(arr,aa,x,y,s,al){ [...s].forEach((c,k)=>{ if(GI[c]!==undefined) put(arr,aa,x+k,y,c,al); }); }
+function buildStatic(){
+  SG.fill(0); SA.fill(0); paths=[]; pulses=[];
+  const rowOf=v=>Math.round(v/chh), colOf=v=>Math.round(v/cw);
+  const hEl=document.getElementById('hdr'), fEl=document.getElementById('ftr');
+  const kids=el=>[...el.children].filter(c=>c.id!=='toast'); [...kids(hEl),...kids(fEl)].forEach(c=>c.style.transform='');
+  const hdr=rectOf(hEl), ftr=rectOf(fEl);
+  const L=1,R=cols-2,T=1,B=rows-2;
+  const hy=Math.min(B-2,rowOf(hdr.y+hdr.h)), fy=Math.max(hy+4,rowOf(ftr.y)-0);
+  // centre header and footer content exactly between their two frame lines
+  const mid=(r0,r1)=>((r0+0.5)+(r1+0.5))/2*chh;
+  const nudge=(el,r,target)=>{ const d=Math.max(-chh*0.9,Math.min(chh*0.9,target-(r.y+r.h/2))); kids(el).forEach(c=>c.style.transform='translateY('+d.toFixed(1)+'px)'); };
+  nudge(hEl,hdr,mid(T,hy)); nudge(fEl,ftr,mid(fy,B));
+  // frame
+  for(let x=L;x<=R;x++){ put(SG,SA,x,T,'─',0.55); put(SG,SA,x,B,'─',0.55); put(SG,SA,x,hy,'─',0.35); put(SG,SA,x,fy,'─',0.35); }
+  for(let y=T;y<=B;y++){ put(SG,SA,L,y,'│',0.55); put(SG,SA,R,y,'│',0.55); }
+  put(SG,SA,L,T,'┌',.6); put(SG,SA,R,T,'┐',.6); put(SG,SA,L,B,'└',.6); put(SG,SA,R,B,'┘',.6);
+  put(SG,SA,L,hy,'├',.5); put(SG,SA,R,hy,'┤',.5); put(SG,SA,L,fy,'├',.5); put(SG,SA,R,fy,'┤',.5);
+  for(let x=L+10;x<R;x+=10){ put(SG,SA,x,T,'┬',.5); const lab=String(x).padStart(3,'0'); if(x%20===0) text(SG,SA,x-1,T-1,lab,.18); }
+  for(let y=hy+5;y<fy;y+=5){ put(SG,SA,L,y,'├',.45); put(SG,SA,R,y,'┤',.45); }
+  text(SG,SA,L+3,T,'┤',.55); text(SG,SA,L+4,T,' SINGULARITY.TP ',.7); text(SG,SA,L+20,T,'├',.55);
+  text(SG,SA,R-18,T,'┤',.55); text(SG,SA,R-17,T,' CELL 01 AUTO ',.6); text(SG,SA,R-3,T,'├',.55);
+  text(SG,SA,R-10,B,'┤',.55); text(SG,SA,R-9,B,' V1.0 ',.55); text(SG,SA,R-3,B,'├',.55);
+}
+
+/* ---------- frame ---------- */
+let END=4.3, UI_AT=4.0;
+let start=performance.now(), skipOffset=0, uiShown=false;
+let speed = reduce ? 1e6 : (quick ? 5 : 1);
+const boot=document.getElementById('boot');
+const BOOT=['POWER ON ........... ','SERVO ON ........... ','MASTERING J1-J6 .... ','LOAD SINGULARITY.TP  '];
+const SPIN='⠋⠹⠼⠦⠇';
+function bootText(t){
+  // progress bar fixed on the first line; boot lines fill reserved slots below it, so nothing moves
+  const p=Math.min(1,t/UI_AT), n=28, f=Math.round(p*n);
+  let s='<span class="bar">▕'+'█'.repeat(f)+'░'.repeat(n-f)+'▏ '+String(Math.round(p*100)).padStart(3,' ')+'%</span>\n\nSINGULARITY TECHNOLOGIES INC. // CONTROLLER BOOT\n\n';
+  BOOT.forEach((l,k)=>{ const at=k*UI_AT*0.2;
+    s += t>at ? '> '+l+(t>at+0.3 ? (k<3?'<span class="ok">OK</span>':'<span class="ok">'+Math.round(p*100)+'%</span>') : SPIN[((t*12)|0)%5])+'\n' : ' \n'; });
+  boot.innerHTML=s;
+}
+function skip(){ skipOffset=1e6; }
+addEventListener('pointerdown',()=>{ if(!uiShown) skip(); },{passive:true});
+addEventListener('keydown',()=>{ if(!uiShown) skip(); });
+
+const ease=t=>1-Math.pow(1-Math.min(1,Math.max(0,t)),3);
+/* Final look: logo in braille, wordmark in clipped hatch. Static parts are pre-rendered to layers once,
+   so each frame only draws what moves (rain, glitch, crosshair). */
+const finalGlyph=i=>{ if(LO[i]) return BB+LO[i]; const x=i%cols,y=(i/cols)|0; return (((x+y)&1)?PB:XB)+WO[i]; };
+const finalAlpha=i=>LO[i]?0.95:0.92;
+let bgLayer=null, logoLayer=null, logoA=1;
+function blit(ctx,i,gl,al,src){ const sw=cw*dpr, sh=chh*dpr; ctx.globalAlpha=al; ctx.drawImage(src||atlas,(gl%PER)*sw,((gl/PER)|0)*sh,sw,sh,(i%cols)*cw,((i/cols)|0)*chh,cw,chh); }
+function makeLayers(){
+  // reuse the same two canvases on every resize (Safari blanks canvases once total canvas memory runs out)
+  const mk=(c)=>{ c=c||document.createElement('canvas'); c.width=Math.round(W*dpr); c.height=Math.round(H*dpr); const x=c.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0); x.clearRect(0,0,W,H); return [c,x]; };
+  let x; [bgLayer,x]=mk(bgLayer); for(let i=0;i<N;i++) if(SG[i]&&SA[i]>0.02) blit(x,i,SG[i],SA[i]);
+  [logoLayer,x]=mk(logoLayer);
+  for(let i=0;i<N;i++) if(LO[i]||WO[i]) blit(x,i,finalGlyph(i),finalAlpha(i));
+  x.globalAlpha=1;
+}
+const dI=[],dG=[],dA=[],dE=[],dC=[];
+function dyn(i,gl,al,er,white){ dI.push(i);dG.push(gl);dA.push(al);dE.push(er);dC.push(white?1:0); }
+function flush(){ X.globalAlpha=1;
+  for(let k=0;k<dI.length;k++){ const i=dI[k]; if(dE[k]) X.clearRect((i%cols)*cw,((i/cols)|0)*chh,cw,chh); blit(X,i,dG[k],dA[k],dC[k]?atlasW:atlas); }
+  X.globalAlpha=1; dI.length=dG.length=dA.length=dE.length=dC.length=0; }
+const hot=new Set();
+const RAINSET=[...SCR, ...[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:=<>'].map(c=>GI[c]), ...Array.from({length:24},()=>BB+1+((Math.random()*255)|0))];
+let RG=null, CAP=null, FI=null, FO=null, BRT=null, AREA=[], AR={x0:0,y0:0,x1:0,y1:0};
+/* Intro timing, locked with Khalil 2026-11-22. */
+const DEF={fin:1.7, fade:1.5, lock:2.0, warm:1.15, out:2.0, flick:6.8, jit:0.55, bright:0.6, glitch:2.5}; // locked 2026-11-22
+const P=DEF;
+const ss=x=>x<=0?0:x>=1?1:x*x*(3-2*x);  // smoothstep easing
+function initRain(){ // intro state: everything lives inside the art box
+  const r=rectOf(document.getElementById('art'));
+  AR={x0:Math.max(0,Math.ceil(r.x/cw)), y0:Math.max(0,Math.ceil(r.y/chh)+1), x1:Math.min(cols-1,Math.floor((r.x+r.w)/cw)-1), y1:Math.min(rows-1,Math.floor((r.y+r.h)/chh)-1)};
+  RG=new Uint16Array(N); CAP=new Float32Array(N); FI=new Float32Array(N); FO=new Float32Array(N); BRT=new Float32Array(N); AREA=[];
+  const w=Math.max(1,AR.x1-AR.x0), hgt=Math.max(1,AR.y1-AR.y0), cx=(AR.x0+AR.x1)/2, cy=(AR.y0+AR.y1)/2;
+  const asp=chh/cw, dmax=Math.hypot(w/2, hgt/2*asp);
+  const c0=P.fin*0.75;
+  let last=0;
+  for(let y=AR.y0;y<=AR.y1;y++) for(let x=AR.x0;x<=AR.x1;x++){ const i=y*cols+x; AREA.push(i);
+    const xn=(x-AR.x0)/w, rad=Math.hypot(x-cx,(y-cy)*asp)/dmax;
+    const mix=(g)=>(1-P.jit)*g+P.jit*Math.random();
+    RG[i]=RAINSET[(Math.random()*RAINSET.length)|0];
+    FI[i]=P.fin*mix(rad);
+    BRT[i]=0.15+Math.random()*Math.max(0.05,P.bright-0.15);
+    FO[i]=c0+P.lock*0.75*mix(xn);                         // background fades with the same left-to-right sweep as the yellow
+    if(LO[i])      CAP[i]=c0+P.lock*0.75*mix(xn);
+    else if(WO[i]) CAP[i]=c0+P.lock*0.35+P.lock*0.65*mix(xn);
+    last=Math.max(last, (LO[i]||WO[i]) ? CAP[i]+P.warm : FO[i]+P.out); }
+  END=Math.max(1.5,last+0.15); UI_AT=Math.max(1.2,END-0.35);
+}
+const rnd=n=>(Math.random()*n)|0;
+const inArea=(x,y)=>x>=AR.x0&&x<=AR.x1&&y>=AR.y0&&y<=AR.y1;
+
+let prevNow=0;
+function heatAround(){
+  const mx=mouse.x/cw, my=mouse.y/chh, R=P.glitch;
+  for(let y=Math.max(0,(my-R)|0);y<Math.min(rows,my+R);y++) for(let x=Math.max(0,(mx-R*1.7)|0);x<Math.min(cols,mx+R*1.7);x++){
+    const d=Math.hypot((x-mx)/1.7,y-my); if(d<R){ const i=y*cols+x; if(!LO[i]&&!WO[i]) continue; HEAT[i]=Math.max(HEAT[i],(1-d/R)*0.9); hot.add(i); } }
+}
+function frame(now){
+  const dt=prevNow?Math.min(0.1,(now-prevNow)/1000):1/60; prevNow=now;
+  const t=Math.min(END+100,(now-start)/1000*speed+skipOffset);
+  const loading=t<END;
+  X.globalAlpha=1; X.clearRect(0,0,W,H); X.drawImage(bgLayer,0,0,W,H);
+  const home=VIEW==='home'; logoA += ((home?1:0)-logoA)*Math.min(1,dt*7); if(Math.abs((home?1:0)-logoA)<0.01) logoA=home?1:0;
+  if(!loading && logoA>0){ X.globalAlpha=logoA; X.drawImage(logoLayer,0,0,W,H); X.globalAlpha=1; }
+
+  if(loading){
+    // intro: mono characters ease in, logo locks then warms to yellow, background flares white then fades to black
+    for(let k=0,n=(AREA.length*P.flick/100)|0;k<n;k++){ const i=AREA[rnd(AREA.length)]; RG[i]=RAINSET[rnd(RAINSET.length)]; }
+    for(const i of AREA){
+      const a0=ss((t-FI[i])/P.fade); if(a0<=0) continue;
+      if((LO[i]||WO[i]) && t>=CAP[i]){ const u=(t-CAP[i])/P.warm, f=finalGlyph(i);
+        const w=ss(u), lockIn=ss(u*3);
+        if(w<1) dyn(i,f,(1-w)*(0.55+0.4*lockIn),false,1);
+        dyn(i,f,w*finalAlpha(i),false,0); continue; }
+      let a=a0*BRT[i];
+      if(!LO[i]&&!WO[i]){ const o=(t-FO[i])/P.out; if(o>0){ a = o<0.3 ? a+(0.9-a)*ss(o/0.3) : 0.9*(1-ss((o-0.3)/0.7)); } }
+      if(a>0.01) dyn(i,RG[i],a,false,1); }
+  } else {
+    // glitch: stays live under the pointer, fades out behind it
+    if(mouse.in && !reduce && home) heatAround();
+    const decay=Math.pow(0.88,dt*60);
+    if(!home){ hot.clear(); }
+    for(const i of hot){ HEAT[i]*=decay; if(HEAT[i]<0.06){ hot.delete(i); continue; }
+      const gl = Math.random()<0.5 ? SCR[rnd(SCR.length)] : (LO[i] ? BB+1+rnd(255) : XB+1+rnd(255));
+      dyn(i,gl,Math.min(1,0.55+HEAT[i]),true); }
+    // pointer crosshair
+    if(mouse.in && !reduce && home && logoA>0.99){
+      const mx=(mouse.x/cw)|0, my=(mouse.y/chh)|0;
+      if(inArea(mx,my)) for(let k=-6;k<=6;k++){ if(k===0) continue; const a=0.5*(1-Math.abs(k)/7);
+        if(inArea(mx+k,my)){ const i=my*cols+mx+k; if(!LO[i]&&!WO[i]) dyn(i,g('─'),a,!!SG[i]); }
+        if(inArea(mx,my+k)){ const i=(my+k)*cols+mx; if(!LO[i]&&!WO[i]) dyn(i,g('│'),a,!!SG[i]); } }
+      if(inArea(mx,my)){ const i=my*cols+mx; dyn(i,g('┼'),1,true); } // centre always shows: it stands in for the hidden cursor
+    }
+  }
+  flush();
+  if(!uiShown){ bootText(t); if(t>=UI_AT) showUI(); }
+}
+
+/* ---------- interaction ---------- */
+addEventListener('pointermove',e=>{
+  mouse.x=e.pageX; mouse.y=e.pageY; mouse.in=true;
+  document.getElementById('tcp').textContent='X'+String((mouse.x/cw)|0).padStart(3,'0')+' Y'+String((mouse.y/chh)|0).padStart(3,'0');
+  root.classList.toggle('nocur', uiShown && VIEW==='home' && !reduce && e.pointerType==='mouse' && inArea((mouse.x/cw)|0,(mouse.y/chh)|0));
+},{passive:true});
+document.addEventListener('pointerleave',()=>{mouse.in=false; root.classList.remove('nocur');});
+
+const toast=document.getElementById('toast'); let tt;
+document.querySelectorAll('[data-soon]').forEach(a=>a.addEventListener('click',e=>{ e.preventDefault();
+  toast.textContent='> '+a.dataset.soon+': PAGE IN PROGRESS'; clearTimeout(tt); tt=setTimeout(()=>toast.textContent='',2600); }));
+
+let VIEW='home';
+const VIEWS=['home','work','about','contact'];
+const stage=document.getElementById('stage'), copyEl=document.getElementById('copy');
+const SCRCH='#%@&*+=<>/\\?!0123456789ABCDEFXZ';
+let decIv=0;
+function textNodes(el){ const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.nodeValue.trim()?1:2}); const a=[]; while(w.nextNode()) a.push(w.currentNode); return a; }
+// scramble text in place: dir 1 decodes in, -1 scrambles out (character widths never change, so nothing reflows)
+function scramble(el,dur,dir,done){
+  clearInterval(decIv);
+  const nodes=textNodes(el).map(n=>{ if(n.__o==null) n.__o=n.nodeValue; return {n,o:n.__o,t:[...n.__o].map(()=>Math.random()*0.7)}; });
+  if(reduce){ nodes.forEach(s=>s.n.nodeValue=s.o); done&&done(); return; }
+  const t0=performance.now();
+  const step=()=>{ const p=Math.min(1,(performance.now()-t0)/1000/dur);
+    for(const s of nodes){ let out=''; const o=s.o;
+      for(let k=0;k<o.length;k++){ const c=o[k]; if(c===' '||c==='\n'||c==='\u00a0'){ out+=c; continue; }
+        const r=s.t[k]; const orig = dir>0 ? p>=r+0.3 : p<r;
+        out += orig ? c : SCRCH[(Math.random()*SCRCH.length)|0]; }
+      s.n.nodeValue=out; }
+    if(p>=1){ clearInterval(decIv); if(dir>0) nodes.forEach(s=>s.n.nodeValue=s.o); done&&done(); } };
+  step(); decIv=setInterval(step,33);
+}
+function setNav(){ document.querySelectorAll('[data-nav]').forEach(a=>{ if(a.dataset.nav===VIEW) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); }); }
+function setView(v,instant){
+  if(!VIEWS.includes(v)) v='home';
+  if(v===VIEW) return;
+  const from=VIEW; VIEW=v; setNav(); root.classList.remove('nocur');
+  const outEl = from==='home' ? copyEl : document.getElementById('v-'+from);
+  const show=()=>{
+    document.querySelectorAll('.view').forEach(s=>s.hidden=true);
+    stage.classList.toggle('away', v!=='home');
+    const el = v==='home' ? copyEl : document.getElementById('v-'+v);
+    if(v!=='home'){ el.hidden=false; el.scrollTop=0; }
+    if(!instant) scramble(el,0.6,1);
+  };
+  if(instant) show(); else scramble(outEl,0.28,-1,show);
+}
+addEventListener('hashchange',()=>{ if(uiShown) setView(location.hash.slice(1)||'home'); });
+document.getElementById('copymail').addEventListener('click',async()=>{ const m=document.getElementById('copymsg');
+  try{ await navigator.clipboard.writeText('khalil.karim@singularityinc.ca'); m.textContent='> ADDRESS COPIED'; }
+  catch(e){ m.textContent='> COPY BLOCKED HERE: SELECT THE ADDRESS ABOVE'; } });
+let typeIv=0;
+function typeIt(){
+  const s='ROBOTICS PROGRAMMING // AUTOMOTIVE PROCESSES', el=document.getElementById('typed');
+  const rest=document.getElementById('rest');
+  clearInterval(typeIv); el.textContent=''; rest.textContent=s;
+  if(reduce){ el.textContent=s; rest.textContent=''; return; } let k=0; typeIv=setInterval(()=>{ k++; el.textContent=s.slice(0,k); rest.textContent=s.slice(k); if(k>=s.length) clearInterval(typeIv); },32);
+}
+const clock=document.getElementById('clock');
+function tick(){ try{ clock.innerHTML='LOCAL: <b>'+new Date().toLocaleTimeString('en-CA',{hour12:false,timeZone:'America/Toronto'})+'</b>'; }catch(e){} }
+tick(); setInterval(tick,1000);
+
+let rz; addEventListener('resize',()=>{ clearTimeout(rz); rz=setTimeout(()=>{ layout(); if(reduce) loop(); },150); });
+layout(); bootText(0);
+if(reduce){ document.getElementById('skip').style.display='none'; }
+// Robust loop: rAF when the browser gives it, a timer when it doesn't (some embedded viewers throttle rAF),
+// and errors never leave the page stuck on the loader.
+let pending=false, lastFrame=0, failed=false;
+const cap=30; // locked target
+let lastDraw=0, fpsCount=0, fpsT=performance.now();
+
+function showUI(){ if(uiShown) return; uiShown=true; boot.classList.add('done'); body.classList.remove('hold'); typeIt(); const hv=location.hash.slice(1); if(VIEWS.includes(hv)&&hv!=='home') setView(hv,false); }
+function loop(){ pending=false; const now=performance.now(); lastFrame=now; // one clock only
+  const interval=1000/cap; let el=now-lastDraw; if(el<0){ lastDraw=now-interval; el=interval; }
+  if(el>=interval-1 || reduce){
+    lastDraw = (el>interval*3 || el<interval) ? now : now-(el%interval);
+    try{ frame(now); fpsCount++; }catch(err){ if(!failed){ failed=true; console.error(err); skipOffset=1e6; showUI(); document.getElementById('toast').textContent='> ERR: '+String(err&&err.message||err).slice(0,80); } }
+  }
+
+  if(!reduce || !uiShown) schedule(); }
+let token=0;
+function schedule(){ if(pending) return; pending=true; const my=++token;
+  const run=()=>{ if(token!==my||!pending) return; loop(); };
+  try{ requestAnimationFrame(run); }catch(e){} setTimeout(run, Math.max(8,1000/cap)); }
+setTimeout(()=>{ if(!uiShown){ skipOffset=1e6; showUI(); } }, 5000);
+function replay(){
+  if(!uiShown) return;
+  if(VIEW!=='home'){ setView('home',true); try{ history.replaceState(null,'','#home'); }catch(e){} }
+  speed = reduce ? 1e6 : 1; start=performance.now(); skipOffset=0; uiShown=false; prevNow=0;
+  hot.clear(); HEAT.fill(0); initRain();
+  clearInterval(typeIv); document.getElementById('typed').textContent=''; document.getElementById('rest').textContent='ROBOTICS PROGRAMMING // AUTOMOTIVE PROCESSES';
+  body.classList.add('hold'); boot.classList.remove('done'); bootText(0); schedule();
+}
+document.getElementById('replay').addEventListener('click',e=>{ e.stopPropagation(); replay(); });
+
+if(VIEWS.includes(location.hash.slice(1))&&location.hash.slice(1)!=='home') skipOffset=1e6;
+schedule();
+})().catch(err=>{ console.error(err); document.body.classList.remove('hold'); const b=document.getElementById('boot'); if(b) b.classList.add('done'); });
+</script>
+</body>
+</html>
